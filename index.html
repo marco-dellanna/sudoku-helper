@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Helper</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <div>
+        <div class="content">
+            <div class="field hidden_candidates"></div>
+            <div class="controls">
+                <img src="img/undo.png" class="undo">
+                <p>
+                    Candidates:&nbsp;&nbsp;<input class="toggle_candidates" id="toggle_candidates" type="checkbox"><label for="toggle_candidates"></label>
+                    <button class="import_sudoku">Import</button>
+                    <button class="export_sudoku">Export</button>
+                </p>
+                <div class="candidates_highlight">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+                <h1>Techniques</h1>
+                <br>
+                <div class="techniques basic">
+                    <h2>Basic</h2>
+                    <ul>
+                        <li class="naked_single">Naked single</li>
+                        <li class="hidden_single">Hidden single</li>
+                        <li class="pointing_cells">Pointing cells</li>
+                        <li class="linebox_reduction">Line/Box reduction</li>
+                        <li class="naked_subset">Naked subset</li>
+                        <li class="hidden_subset">Hidden subset</li>
+                    </ul>
+                </div>
+                <!--<div class="techniques hard">
+                <h2>Hard</h2>
+                <ul>
+                    <li class="x_wing">X-Wing</li>
+                    <li class="simple_coloring">Simple coloring</li>
+                    <li class="xy_wing">XY-Wing</li>
+                    <li class="swordfish">Swordfish</li>
+                    <li class="xyz_wing">XYZ-Wing</li>
+                    <li class="bug">BUG</li>
+                </ul>
+            </div>
+            <br><br>
+            <div class="techniques diabolical">
+                <h2>Diabolical</h2>
+                <ul>
+                    <li class="x_cycles">X-Cycles</li>
+                    <li class="xy_chain">XY-Chain</li>
+                    <li class="3d_medusa">3D Medusa</li>
+                    <li class="jellyfish">Jellyfish</li>
+                    <li class="unique_rectangle">Unique rectangle</li>
+                    <li class="hidden_unique_rectangle">Hidden unique rectangle</li>
+                </ul>
+            </div>-->
+            </div>
+        </div>
+
+        <div class="techniques_results"></div>
+    </div>
+    <template>
+        <table>
+            <tr>
+                <td class="candidate_visible C1">1</td>
+                <td class="candidate_visible C2">2</td>
+                <td class="candidate_visible C3">3</td>
+            </tr>
+            <tr>
+                <td class="candidate_visible C4">4</td>
+                <td class="candidate_visible C5">5</td>
+                <td class="candidate_visible C6">6</td>
+            </tr>
+            <tr>
+                <td class="candidate_visible C7">7</td>
+                <td class="candidate_visible C8">8</td>
+                <td class="candidate_visible C9">9</td>
+            </tr>
+        </table>
+    </template>
+
+    <script src="js/main/init.js"></script>
+    <script src="js/main/utils.js"></script>
+    <script src="js/main/candidates_highlight.js"></script>
+    <script src="js/main/undo.js"></script>
+    <script src="js/main/erode_candidates.js"></script>
+    <script src="js/main/user_interact.js"></script>
+    <script src="js/main/toggle_candidates.js"></script>
+    <script src="js/main/check.js"></script>
+    <script src="js/main/import_export.js"></script>
+
+
+    <script src="js/techniques/impl/naked_single.js"></script>
+    <script src="js/techniques/impl/hidden_single.js"></script>
+    <script src="js/techniques/impl/locked_candidate.js"></script>
+    <script src="js/techniques/impl/naked_subset.js"></script>
+    <script src="js/techniques/impl/hidden_subset.js"></script>
+
+    <script src="js/techniques/view/naked_single.js"></script>
+    <script src="js/techniques/view/hidden_single.js"></script>
+    <script src="js/techniques/view/locked_candidates.js"></script>
+    <script src="js/techniques/view/naked_subset.js"></script>
+    <script src="js/techniques/view/hidden_subset.js"></script>
+
+
+    <script src="js/techniques/techniques.js"></script>
+
+
+    <script>init()</script>
+</body>
+
+</html>

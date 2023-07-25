@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.field {
+    display: flex;
+    flex-wrap: wrap;
+    width: 456px;
+    height: 456px;
+    border: 3px solid #000;
+    background-color: #FFF;
+    user-select: none;
+}
+
+.field div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.field div span {
+    font-size: 55px;
+    vertical-align: middle;
+}
+
+.field div table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.field div table td {
+    color: transparent;
+    font-size: 14px;
+}
+
+.field div table .candidate_visible {
+    color: #555;
+}
+
+.field .selected {
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+.field .highlighted {
+    background-color: rgba(255, 255, 0, 0.5);
+}
+
+.field .double-highlighted {
+    background-color: rgba(0, 255, 149, 0.5);
+}
+
+.field div[solved] {
+    line-height: 45px;
+}
+
+.field div[solved] label {
+    font-size: 45px;
+}
+
+.field div[solved] table {
+    display: none;
+}
+
+.field.hidden_candidates div table {
+    visibility: hidden;
+}
+
+.controls {
+    padding: 20px;
+    border: 1px dotted #000;
+}
+
+.controls .undo {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.controls .toggle_candidates {
+    display: none;
+
+}
+
+.controls .toggle_candidates+label {
+    overflow: hidden;
+    transform: skew(-10deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: all 0.2s ease;
+    background: #888;
+    outline: 0;
+    display: inline-block;
+    width: 3em;
+    height: 1.5em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.controls .toggle_candidates+label:before,
+.controls .toggle_candidates+label:after {
+    transform: skew(10deg);
+    display: inline-block;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    line-height: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.controls .toggle_candidates+label:after {
+    left: 100%;
+    content: "ON";
+}
+
+.controls .toggle_candidates+label:before {
+    left: 0;
+    content: "OFF";
+}
+
+.controls .toggle_candidates:checked+label {
+    background: #86d993;
+}
+
+.controls .toggle_candidates:checked+label:before {
+    left: -100%;
+}
+
+.controls .toggle_candidates:checked+label:after {
+    left: 0;
+}
+
+.controls .import_sudoku,
+.controls .export_sudoku {
+    background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+    background-color: #44c767;
+    border-radius: 28px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+
+.controls .import_sudoku:hover,
+.controls .export_sudoku:hover {
+    background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+    background-color: #5cbf2a;
+}
+
+.candidates_highlight {
+    display: flex;
+    margin: 20px 0;
+}
+
+.candidates_highlight div {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+.candidates_highlight div.selected {
+    background-color: #DDD;
+}
+
+.controls .techniques {
+    display: inline-block;
+}
+
+.controls .techniques ul {
+    list-style: none;
+}
+
+.controls .techniques li {
+    display: block;
+    padding: 5px 20px;
+    background-color: #19e237;
+    cursor: pointer;
+    transition: padding 0.2s ease;
+}
+
+.controls .techniques li:hover {
+    padding: 5px 10px 5px 30px;
+}
+
+
+.controls .techniques li:nth-child(even) {
+    background-color: #78ec89;
+}
+
+.techniques_results {
+    overflow: auto;
+}
+
+.techniques_results ul {
+    list-style: none;
+}
+
+.techniques_results ul li {
+    font-size: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
