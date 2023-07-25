@@ -30,3 +30,8 @@ const get_combinations = function (a, n, s = [], t = []) {
 }
 
 const describe_group = group => group.map(g => `R${1 + +g.getAttribute('row')}C${1 + +g.getAttribute('col')}`).join(', ');
+
+const off_group_elimination = (group, subgroup, values) => {
+    const difference = group.filter(s => !subgroup.includes(s));
+    return values.map(v => filter_cells_with_candidate(difference, v)).flat().length > 0;
+}

@@ -2,13 +2,13 @@ const naked_subset = () => {
     
     techniques_results.innerHTML = '';
     
-    display_subset(2, 'pair');
-    display_subset(3, 'triple');
-    display_subset(4, 'quad');    
+    display_naked_subset(2, 'pair');
+    display_naked_subset(3, 'triple');
+    display_naked_subset(4, 'quad');    
 }
 
 
-const display_subset = (k, type) => {
+const display_naked_subset = (k, type) => {
     const found = naked_subset_impl(k);
 
     if (!found.length) {
