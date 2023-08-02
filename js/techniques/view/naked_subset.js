@@ -12,7 +12,9 @@ const display_naked_subset = (k, type) => {
     const found = naked_subset_impl(k);
 
     if (!found.length) {
-        techniques_results.innerHTML += `<p>No naked ${type}s found</p>`;
+        const p = document.createElement('P');
+        p.textContent = `No naked ${type}s found`
+        techniques_results.append(p);
         return;
     }
 

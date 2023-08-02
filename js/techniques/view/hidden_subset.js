@@ -10,7 +10,9 @@ const display_hidden_subset = (k, type) => {
     const found = hidden_subset_impl(k);
 
     if (!found.length) {
-        techniques_results.innerHTML += `<p>No hidden ${type}s found</p>`;
+        const p = document.createElement('P');
+        p.textContent = `No hidden ${type}s found`
+        techniques_results.append(p);
         return;
     }
 

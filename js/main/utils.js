@@ -35,3 +35,11 @@ const off_group_elimination = (group, subgroup, values) => {
     const difference = group.filter(s => !subgroup.includes(s));
     return values.map(v => filter_cells_with_candidate(difference, v)).flat().length > 0;
 }
+
+const merge_set = group => [...new Set(group)];
+
+const is_single = (unit, val) => {
+    unit = unit.filter(c => !is_solved(c) && has_candidate(c, val));
+    if (unit.length == 1) return unit[0];
+    else return null;
+}

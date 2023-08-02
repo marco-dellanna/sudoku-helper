@@ -14,7 +14,13 @@ const hidden_subset_impl = (k) => {
             const row_subset = is_k_hidden(to_merge, k); 
             if(row_subset) found.push({unit: 'r', subset: row_subset, values: comb.join(', ')});
                 
+            to_merge = comb.map(c => filter_cells_with_candidate(col, c));
+            const col_subset = is_k_hidden(to_merge, k); 
+            if(col_subset) found.push({unit: 'c', subset: col_subset, values: comb.join(', ')});
 
+            to_merge = comb.map(c => filter_cells_with_candidate(box, c));
+            const box_subset = is_k_hidden(to_merge, k); 
+            if(box_subset) found.push({unit: 'b', subset: box_subset, values: comb.join(', ')});
         }
     }
     
@@ -23,11 +29,12 @@ const hidden_subset_impl = (k) => {
 
 const candidate_array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const merge_cells = group => [...new Set(group)];
 
 const is_k_hidden = (group, size) => {
-    if(group.some(g => g.length <= 0)) return null;
+    // 0 -> NOT PRESENT
+    // 1 -> HIDDEN SINGLE
+    if(group.some(g => g.length <= 1)) return null;
     const merged = merge_cells(group.flat());
-    if(merged.length == size) return merged;
+    if(merged.length == size && merge_candidates(merged).length > size) return merged;
     return null;
 }

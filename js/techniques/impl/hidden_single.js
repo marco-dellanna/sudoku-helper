@@ -21,9 +21,3 @@ const hidden_single_impl = () => {
 
     return found;
 }
-
-const is_single = (unit, val) => {
-    unit = unit.filter(c => !is_solved(c) && has_candidate(c, val));
-    if (unit.length == 1) return unit[0];
-    else return null;
-}

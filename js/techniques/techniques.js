@@ -16,3 +16,12 @@ btn_naked_subset.addEventListener('click', naked_subset);
 
 const btn_hidden_subset = document.querySelector('.hidden_subset');
 btn_hidden_subset.addEventListener('click', hidden_subset);
+
+const btn_x_wing = document.querySelector('.x_wing');
+btn_x_wing.addEventListener('click', () => fish(2));
+
+const btn_swordfish = document.querySelector('.swordfish');
+btn_swordfish.addEventListener('click', () => fish(3));
+
+const btn_jellyfish = document.querySelector('.jellyfish');
+btn_jellyfish.addEventListener('click', () => fish(4));
