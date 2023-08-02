@@ -34,7 +34,7 @@ const is_k_hidden = (group, size) => {
     // 0 -> NOT PRESENT
     // 1 -> HIDDEN SINGLE
     if(group.some(g => g.length <= 1)) return null;
-    const merged = merge_cells(group.flat());
+    const merged = merge_set(group.flat());
     if(merged.length == size && merge_candidates(merged).length > size) return merged;
     return null;
 }
