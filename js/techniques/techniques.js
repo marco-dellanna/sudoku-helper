@@ -25,3 +25,8 @@ btn_swordfish.addEventListener('click', () => fish(3));
 
 const btn_jellyfish = document.querySelector('.jellyfish');
 btn_jellyfish.addEventListener('click', () => fish(4));
+
+
+
+const btn_bug = document.querySelector('.bug');
+btn_bug.addEventListener('click', () => bug());

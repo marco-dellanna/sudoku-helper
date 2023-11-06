@@ -1,9 +1,13 @@
 const pointing_cells_impl = () => {
     let found = [];
 
+    // LOOP THROUGH ALL THE BOXES
     for (let i = 0; i < 9; i++) {
+        // GET BOX CELLS
         const current_box = unsolved_box_cells_by_index(i);
+        // LOOP THROUGH ALL POSSIBLE CANDIDATES
         for (let val = 1; val < 10; val++) {
+            // CHECK IF THE CELLS THAT HAVE THE CANDIDATE, ALL SHARE THE SAME ROW/COL
             is_unit_compact(current_box, val, 'row', 'r', unsolved_row_cells, found);
             is_unit_compact(current_box, val, 'col', 'c', unsolved_col_cells, found);
         }
@@ -15,11 +19,14 @@ const pointing_cells_impl = () => {
 const linebox_reduction_impl = () => {
     let found = [];
 
+    // LOOP THROUGH ALL THE ROWS/COLS
     for (let i = 0; i < 9; i++) {
+        // GET THE ROW/COL CELLS
         const current_row = unsolved_row_cells(i);
         const current_col = unsolved_col_cells(i);
-
+        // LOOP THROUGH ALL POSSIBLE CANDIDATES
         for (let val = 1; val < 10; val++) {
+            // CHECK IF THE CELLS THAT HAVE THE CANDIDATE, ALL SHARE THE SAME BOX
             is_unit_compact(current_row, val, 'box', 'r', unsolved_box_cells_by_index, found);
             is_unit_compact(current_col, val, 'box', 'c', unsolved_box_cells_by_index, found);
         }
