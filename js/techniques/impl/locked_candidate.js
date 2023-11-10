@@ -36,20 +36,21 @@ const linebox_reduction_impl = () => {
 }
 
 const is_compact = (unit, val, direction) => {
+    // GET THE CELLS THAT HAVE THE CANDIDATE
     const filter_unit = filter_cells_with_candidate(unit, val)
-
-    // ESCLUDI HIDDEN SINGLES
+    // STOP IF IT IS AN HIDDEN SINGLES
     if (filter_unit.length < 2) return null;
-
+    // EXTRACT THEIR ROW/COL/BOX VALUE
     let group_compact = filter_unit.map(c => c.getAttribute(direction));
+    // CHECK IF THEY ALL HAVE THE SAME ROW/COL/BOX VALUE
     return group_compact.every(c => c == group_compact[0]) ? filter_unit : null;
 }
 
 const is_unit_compact = (current_unit, val, dir, unit, get_group, found) => {
+    // FIND OUT IF THE CELLS THAT HAVE THE CANDIDATE ARE COMPACT
     let unit_compact = is_compact(current_unit, val, dir);
-    if (unit_compact) {
-        const index = unit_compact[0].getAttribute(dir);
-        if (off_group_elimination(get_group(index), unit_compact, [val]))
-            found.push({ value: val, unit: unit, pointing: unit_compact });
-    }
+    // CHECK IF WE FOUND AN EFFECTIVE LOCKED CANDIDATE
+    const index = unit_compact[0].getAttribute(dir);
+    if (unit_compact && off_group_elimination(get_group(index), unit_compact, [val]))
+        found.push({ value: val, unit: unit, pointing: unit_compact });
 }

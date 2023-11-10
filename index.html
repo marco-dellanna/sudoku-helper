@@ -13,27 +13,32 @@
 
     <div>
         <div class="content">
-            <div class="field hidden_candidates"></div>
-            <div class="controls">
-                <img src="img/undo.png" class="undo">
-                <p>
-                    Candidates:&nbsp;&nbsp;<input class="toggle_candidates" id="toggle_candidates" type="checkbox"><label for="toggle_candidates"></label>
-                    <button class="import_sudoku">Import</button>
-                    <button class="export_sudoku">Export</button>
-                </p>
-                <div class="candidates_highlight">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
+            <div>
+                <div class="field hidden_candidates"></div>
+                <div class="controls">
+                    <img src="img/undo.png" class="undo">
+                    <p>
+                        Candidates:&nbsp;&nbsp;<input class="toggle_candidates" id="toggle_candidates"
+                            type="checkbox"><label for="toggle_candidates"></label>
+                        <button class="import_sudoku">Import</button>
+                        <button class="export_sudoku">Export</button>
+                    </p>
+                    <div class="candidates_highlight">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                    </div>
                 </div>
-                <h1>Techniques</h1>
-                <br>
+
+            </div>
+
+            <div class="controls">
                 <div class="techniques basic">
                     <h2>Basic</h2>
                     <ul>
@@ -68,19 +73,18 @@
                     <ul>
                         <li class="x_cycles">X-Cycles</li>
                         <li class="xy_chain">XY-Chain</li>
-                    </ul>                    
+                    </ul>
                 </div>
                 <div class="techniques uniqueness">
-                    <h2>Coloring</h2>
+                    <h2>Uniqueness</h2>
                     <ul>
                         <li class="bug">BUG</li>
                         <li class="unique_rectangle">Unique rectangle</li>
                         <li class="hidden_unique_rectangle">Hidden unique rectangle</li>
-                    </ul>                   
+                    </ul>
                 </div>
             </div>
         </div>
-
         <div class="techniques_results"></div>
     </div>
     <template>
@@ -129,7 +133,7 @@
     <script src="js/techniques/view/naked_subset.js"></script>
     <script src="js/techniques/view/hidden_subset.js"></script>
     <script src="js/techniques/view/fish.js"></script>
-    
+
     <script src="js/techniques/view/BUG.js"></script>
 
 

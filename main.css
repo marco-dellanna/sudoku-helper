@@ -87,7 +87,7 @@ body {
 }
 
 .controls {
-    padding: 20px;
+    padding: 10px 20px;
     border: 1px dotted #000;
 }
 
@@ -198,11 +198,6 @@ body {
 
 .candidates_highlight div.selected {
     background-color: #DDD;
-}
-
-.controls .techniques {
-    display: inline-block;
-    vertical-align: top;
 }
 
 .controls .techniques h2 {
