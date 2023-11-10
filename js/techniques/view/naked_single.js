@@ -19,7 +19,10 @@ const naked_single = () => {
         ul.append(li);
         li.innerText = `The only candidate for cell R${1 + +r}C${1 + +c} is ${f.value}.`;
         
-        li.addEventListener('mouseenter', () => highlight_candidates_by_cell_list([cells[r][c]]));
+        li.addEventListener('mouseenter', () => {
+            clear_highlight();
+            highlight_candidates_by_cell_list([cells[r][c]]);
+        });
         li.addEventListener('mouseout', clear_highlight);
     }
 

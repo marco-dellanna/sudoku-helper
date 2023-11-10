@@ -46,6 +46,7 @@ const fish = (k) => {
         li.innerHTML = `In ${label1}, candidate cells for the digit ${f.value} lie in ${label2}. The digit ${f.value} is eliminated from the remaining cells of ${label2}.`;
 
         li.addEventListener('mouseenter', () => {
+            clear_highlight();
             highlight_candidates_by_cell_list(highlight)
             double_highlight_candidates_by_cell_list(f.fish);
         });

@@ -48,6 +48,7 @@ const display_naked_subset = (k, type) => {
         li.innerHTML = `In ${label}, cells ${describe_group(f.subset)} contain only the ${type} ${f.values}. These digits are eliminated from the remaining cells of ${label}.`;
 
         li.addEventListener('mouseenter', () => {
+            clear_highlight();
             highlight_candidates_by_cell_list(highlight)
             double_highlight_candidates_by_cell_list(f.subset);
         });

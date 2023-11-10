@@ -34,6 +34,7 @@ const pointing_cells = () => {
         li.innerHTML = `In box ${1 + +b}, the only cells with candidate ${f.value} are confined to ${label}.`;
 
         li.addEventListener('mouseenter', () => {
+            clear_highlight();
             highlight_candidates_by_cell_list(highlight)
             double_highlight_candidates_by_cell_list(f.pointing);
         });
@@ -77,6 +78,7 @@ const linebox_reduction = () => {
         li.innerHTML = `In ${label}, the only cells with candidate ${f.value} are confined to box ${1 + +b}.`;
 
         li.addEventListener('mouseenter', () => {
+            clear_highlight();
             highlight_candidates_by_cell_list(highlight)
             double_highlight_candidates_by_cell_list(f.pointing);
         });

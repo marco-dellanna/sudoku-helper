@@ -18,7 +18,10 @@ const bug = () => {
     ul.append(li);
     li.innerText = `BUG found in R${1 + +r}C${1 + +c}, ${found[1]} must be the solution. Other candidates would create two or more solutions so they can be removed`;
     
-    li.addEventListener('mouseenter', () => highlight_candidates_by_cell_list([cells[r][c]]));
+    li.addEventListener('mouseenter', () => {
+        clear_highlight();
+        highlight_candidates_by_cell_list([cells[r][c]]);
+    });
     li.addEventListener('mouseout', clear_highlight);
     
 }

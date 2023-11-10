@@ -7,8 +7,9 @@ const toggle_candidate = (event) => {
 
     // IF HIGHLIGHTING WAS ACTIVE THEN RE-COMPUTE IT
     if (highlighted_candidate) {
+        const c = highlighted_candidate;
         clear_highlight();
-        highlight_candidates_by_value(highlighted_candidate);
+        highlight_candidates_by_value(c);
     }
 
     // ROLLBACK

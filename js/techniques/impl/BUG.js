@@ -21,7 +21,7 @@ const bug_impl = () => {
         }
     }
 
-    // ALL CELLS ARE BI-VALUED EXCEPT ONE -> BUG
+    // ALL CELLS ARE BI-VALUED EXCEPT ONE -> BUG+1
     if (bivalue_cells == total_cells - 1 && bug_cell != null) {
         // FIND THE CANDIDATE THAT SOLVES THE BUG
 

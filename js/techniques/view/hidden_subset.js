@@ -46,6 +46,7 @@ const display_hidden_subset = (k, type) => {
         li.innerHTML = `In ${label}, the ${type} ${f.values} can be placed only in cells ${describe_group(f.subset)}. The remaining digits are eliminated from these cells.`;
 
         li.addEventListener('mouseenter', () => {
+            clear_highlight();
             highlight_candidates_by_cell_list(highlight)
             double_highlight_candidates_by_cell_list(f.subset);
         });

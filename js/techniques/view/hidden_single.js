@@ -38,6 +38,7 @@ const hidden_single = () => {
         li.innerHTML = `In ${label}, the only cell with candidate ${f.value} is R${1 + +r}C${1 + +c}.`;
 
         li.addEventListener('mouseenter', () => {
+            clear_highlight();
             highlight_candidates_by_cell_list(highlight)
             double_highlight_candidates_by_cell_list([f.hidden]);
         });
