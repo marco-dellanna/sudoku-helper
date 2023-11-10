@@ -23,5 +23,5 @@ const is_single = (current_unit, val, dir, found) => {
     // GET ONLY CELLS THAT HAVE THE CANDIDATE
     const with_candidate = filter_cells_with_candidate(current_unit, val);
     // CHECK IF THERE IS ONLY ONE
-    if (with_candidate.length == 1) found.push({ value: val, unit: dir, hidden: current_unit[0] });
+    if (with_candidate.length == 1) found.push({ value: val, unit: dir, hidden: with_candidate[0] });
 }
