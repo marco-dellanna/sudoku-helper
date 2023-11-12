@@ -33,7 +33,7 @@ const move_selection = (event) => {
             break;
     }
 
-    new_selected.dispatchEvent(new Event('contextmenu'));
+    new_selected.dispatchEvent(new Event('click'));
 
     selected_cell = new_selected;
 }
@@ -73,8 +73,6 @@ const solve_cell = (event) => {
 };
 
 const select_cell = (event) => {
-    event.preventDefault();
-
     if (selected_cell) selected_cell.classList.remove('selected');
     selected_cell = event.currentTarget;
     selected_cell.classList.add('selected');
@@ -91,7 +89,7 @@ const numeric_input = (str) => {
 
 
 const trigger_solve = (cell, value) => {
-    const select = new Event('contextmenu');
+    const select = new Event('click');
     select.currentTarget = cell;
     cell.dispatchEvent(select);
 

@@ -10,7 +10,7 @@ const init = () => {
 
     const init_candidates = () => {
         const table = template_candidates.firstElementChild.cloneNode(true);
-        table.addEventListener('click', toggle_candidate);
+        table.addEventListener('contextmenu', toggle_candidate);
         return table;
     };
 
@@ -21,7 +21,7 @@ const init = () => {
 
         let cell = document.createElement('DIV');
         cell.append(init_candidates());
-        cell.addEventListener('contextmenu', select_cell);
+        cell.addEventListener('click', select_cell);
         cell.setAttribute('row', row);
         cell.setAttribute('col', col);
         if (row % 3 == 0 && col % 3 == 0) {

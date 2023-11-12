@@ -27,7 +27,7 @@ const get_combinations = function (a, n, s = [], t = []) {
         t.pop();
         return p
     }, s)
-}
+};
 
 const describe_group = group => group.map(g => `R${1 + +g.getAttribute('row')}C${1 + +g.getAttribute('col')}`).join(', ');
 
@@ -37,3 +37,22 @@ const off_group_elimination = (group, subgroup, values) => {
 }
 
 const merge_set = group => [...new Set(group)];
+
+const merge_candidates = group => {
+    const values = new Set();
+    for (const g of group)
+        for (const c of get_candidate_list(g))
+            values.add(c.textContent);
+    return [...values];
+}
+
+const filter_bivalue_cells = arr => arr.filter(c => get_candidate_list(c).length == 2);
+
+const cells_seen_by = (c) => {
+    const col = unsolved_col_cells(c.getAttribute('col'));
+    const row = unsolved_row_cells(c.getAttribute('row'));
+    const box = unsolved_box_cells(c.getAttribute('box'));
+    return col.concat(row).concat(box);
+}
+
+const bivalued_cells_seen_by = (c) => filter_bivalue_cells(cells_seen_by(c));

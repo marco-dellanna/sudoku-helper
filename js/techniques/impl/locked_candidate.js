@@ -50,7 +50,6 @@ const is_unit_compact = (current_unit, val, dir, unit, get_group, found) => {
     // FIND OUT IF THE CELLS THAT HAVE THE CANDIDATE ARE COMPACT
     let unit_compact = is_compact(current_unit, val, dir);
     // CHECK IF WE FOUND AN EFFECTIVE LOCKED CANDIDATE
-    const index = unit_compact[0].getAttribute(dir);
-    if (unit_compact && off_group_elimination(get_group(index), unit_compact, [val]))
+    if (unit_compact && off_group_elimination(get_group(unit_compact[0].getAttribute(dir)), unit_compact, [val]))
         found.push({ value: val, unit: unit, pointing: unit_compact });
 }

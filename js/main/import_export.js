@@ -4,7 +4,7 @@ import_btn.addEventListener('click', () => {
 
     while (history.length) history.pop()();
 
-    const select_first = new Event('contextmenu');
+    const select_first = new Event('click');
     select_first.currentTarget = cells[0][0];
     cells[0][0].dispatchEvent(select_first);
 

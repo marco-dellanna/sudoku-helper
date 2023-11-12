@@ -2,6 +2,8 @@ document.querySelector('.toggle_candidates').addEventListener('change', () => fi
 
 // MOSTRA/NASCONDI SINGOLO CANDIDATO CON IL TASTO SINISTRO
 const toggle_candidate = (event) => {
+    event.preventDefault();
+    
     const td = event.target;
     td.classList.toggle('candidate_visible');
 
