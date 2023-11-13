@@ -11,4 +11,4 @@ const naked_single_impl = () => {
         }
 
     return naked;
-}
+};

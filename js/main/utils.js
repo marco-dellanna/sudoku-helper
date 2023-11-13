@@ -36,6 +36,8 @@ const off_group_elimination = (group, subgroup, values) => {
 
 const merge_set = group => [...new Set(group)];
 
+const intersect_sets = (one, two) => one.filter(elem => two.includes(elem));
+
 const merge_candidates = group => {
     const values = new Set();
     for (const g of group)

@@ -25,7 +25,7 @@ const hidden_subset_impl = (k) => {
     }
     
     return found;
-}
+};
 
 const candidate_array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -37,4 +37,4 @@ const is_k_hidden = (group, size) => {
     const merged = merge_set(group.flat());
     if(merged.length == size && merge_candidates(merged).length > size) return merged;
     return null;
-}
+};

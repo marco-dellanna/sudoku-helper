@@ -12,13 +12,9 @@ const naked_subset_impl = (k) => {
     }
 
     return found;
-}
+};
 
-
-
-const is_k_naked = (combinations, size) => {
-    return combinations.filter(temp => merge_candidates(temp).length == size);
-}
+const is_k_naked = (combinations, size) => combinations.filter(temp => merge_candidates(temp).length == size);
 
 const is_unit_k_naked = (current_unit, unit, k, found) => {
     const unit_combs = get_combinations(current_unit, k);
@@ -28,4 +24,4 @@ const is_unit_k_naked = (current_unit, unit, k, found) => {
         if (off_group_elimination(current_unit, sub, cand_merge))
             found.push({ unit: unit, subset: sub, values: cand_merge.join(', ') });
     }
-}
+};

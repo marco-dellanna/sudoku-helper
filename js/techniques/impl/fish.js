@@ -15,7 +15,7 @@ const fish_impl = (k) => {
     }
 
     return found;
-}
+};
 
 const unit_index_array = [0,1,2,3,4,5,6,7,8];
 
@@ -29,6 +29,4 @@ const is_k_fish = (comb, val, k, get_unit_1, get_unit_2, dir) => {
             check_group.map(index => get_unit_2(index)).flat(), 
             unitset, 
             [val])) ? unitset : null;
-            
-
-}
+};

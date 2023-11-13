@@ -33,7 +33,7 @@ const linebox_reduction_impl = () => {
     }
 
     return found;
-}
+};
 
 const is_compact = (unit, val, direction) => {
     // GET THE CELLS THAT HAVE THE CANDIDATE
@@ -44,7 +44,7 @@ const is_compact = (unit, val, direction) => {
     let group_compact = filter_unit.map(c => c.getAttribute(direction));
     // CHECK IF THEY ALL HAVE THE SAME ROW/COL/BOX VALUE
     return group_compact.every(c => c == group_compact[0]) ? filter_unit : null;
-}
+};
 
 const is_unit_compact = (current_unit, val, dir, unit, get_group, found) => {
     // FIND OUT IF THE CELLS THAT HAVE THE CANDIDATE ARE COMPACT
@@ -52,4 +52,4 @@ const is_unit_compact = (current_unit, val, dir, unit, get_group, found) => {
     // CHECK IF WE FOUND AN EFFECTIVE LOCKED CANDIDATE
     if (unit_compact && off_group_elimination(get_group(unit_compact[0].getAttribute(dir)), unit_compact, [val]))
         found.push({ value: val, unit: unit, pointing: unit_compact });
-}
+};

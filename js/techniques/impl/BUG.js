@@ -39,4 +39,4 @@ const bug_impl = () => {
 
     // NO BUG FOUND
     return null;
-}
+};
