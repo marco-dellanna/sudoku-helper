@@ -4,12 +4,11 @@ const get_candidate_list = c => [...c.querySelectorAll('.candidate_visible')];
 const get_candidate_list_by_index = (i, j) => get_candidate_list(cells[i][j]);
 const has_candidate = (c, val) => c.querySelector(`.candidate_visible.C${val}`);
 const filter_cells_with_candidate = (arr, val) => arr.filter(c => has_candidate(c, val));
-const row_cells = (i) => cells[i];
 
+const row_cells = (i) => cells[i];
 const unsolved_row_cells = (i) => row_cells(i).filter(c => !is_solved(c));
 
 const col_cells = (j) => cells.map(r => r[j]);
-
 const unsolved_col_cells = (j) => col_cells(j).filter(c => !is_solved(c));
 
 const box_cells = (i, j) => box_cells_by_index(cells[i][j].getAttribute('box'));
@@ -17,7 +16,6 @@ const box_cells = (i, j) => box_cells_by_index(cells[i][j].getAttribute('box'));
 const unsolved_box_cells = (i, j) => box_cells(i, j).filter(c => !is_solved(c));
 
 const box_cells_by_index = (index) => cells.flatMap(c => c).filter(c => c.getAttribute('box') == index);
-
 const unsolved_box_cells_by_index = (index) => box_cells_by_index(index).filter(c => !is_solved(c));
 
 const get_combinations = function (a, n, s = [], t = []) {
@@ -51,8 +49,8 @@ const filter_bivalue_cells = arr => arr.filter(c => get_candidate_list(c).length
 const cells_seen_by = (c) => {
     const col = unsolved_col_cells(c.getAttribute('col'));
     const row = unsolved_row_cells(c.getAttribute('row'));
-    const box = unsolved_box_cells(c.getAttribute('box'));
-    return col.concat(row).concat(box);
+    const box = unsolved_box_cells_by_index(c.getAttribute('box'));
+    return merge_set(col.concat(row).concat(box).filter(v => v != c));
 }
 
 const bivalued_cells_seen_by = (c) => filter_bivalue_cells(cells_seen_by(c));

@@ -20,14 +20,6 @@ const is_k_naked = (combinations, size) => {
     return combinations.filter(temp => merge_candidates(temp).length == size);
 }
 
-const merge_candidates = group => {
-    const values = new Set();
-    for (const g of group)
-        for (const c of get_candidate_list(g))
-            values.add(c.textContent);
-    return [...values];
-}
-
 const is_unit_k_naked = (current_unit, unit, k, found) => {
     const unit_combs = get_combinations(current_unit, k);
     const unit_subset = is_k_naked(unit_combs, k);

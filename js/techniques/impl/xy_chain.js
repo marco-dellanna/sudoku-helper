@@ -4,11 +4,10 @@ const xy_chain_impl = (max_length) => {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             // FIND BIVALUED CELLS
-            const candidate_list = get_candidate_list_by_index(i, j);
-            if (candidate_list.length == 2) {
+            const candidate_list = get_candidate_list_by_index(i, j).map(c => c.textContent);
+            if (!is_solved(cells[i][j]) && candidate_list.length == 2) {
                 // START THE SEARCH FOR CHAINS
-                BFS_chain(cells[i][j], candidate_list);
-
+                console.log(BFS_chain(cells[i][j], candidate_list));
             }
         }
     }
@@ -17,37 +16,47 @@ const xy_chain_impl = (max_length) => {
 
 
 const BFS_chain = (root, cand_list) => {
-    const queue = [{
-        node: root,
-        length: 1,
-        common: cand_list[0],
-        head: cand_list[1]
-    },
-    {
-        node: root,
-        length: 1,
-        common: cand_list[1],
-        head: cand_list[0]
-    }];
+    // ENQUEUE BOTH POSSIBLE CHAIN HEADS
+    const queue = [
+        enqueue(cand_list[0], cand_list[1], [root]),
+        enqueue(cand_list[1], cand_list[0], [root])
+    ];
+    // DS THAT HOLDS ALL CHAINS FOUND
     const result = [];
-    let q;
-    let first_round = true;
+
     while (queue.length) {
-        q = queue.shift();
-        const seen_by_with_common_candidate = filter_cells_with_candidate(
-            bivalued_cells_seen_by(q.node),
-            q.common.textContent
-        );
-        for (const c of seen_by) {
-            queue.push(c);
-            if (!first_round /* && is a chain*/)
-                result.push({
-                    node: c,
-                    length: q.length+1,
-                    common: 3
-                });
+        // ANALYZE THE FIRST NODE
+        const q = queue.shift();
+        // GET ALL THE BIVALUED CELLS SEEN BY THE LAST CELL OF THE CHAIN
+        const bivalued_seen_by = bivalued_cells_seen_by(q.chain.at(-1));
+        // KEEP ONLY THE CELLS THAT HAVE THE COMMON CANDIDATE
+        const bivalued_with_common = filter_cells_with_candidate(bivalued_seen_by, q.common);
+        // KEEP ONLY THE CELLS THAT DO NOT ALREADY BELONG TO THE CHAIN
+        const bivalued_not_in_chain = bivalued_with_common.filter(c => !q.chain.includes(c));
+        // EACH OF THESE REPRESENT AN EXTENSION OF THE CURRENT CHAIN
+        for (const c of bivalued_not_in_chain) {
+            // ENQUEUE IT TO EXPLORE FURTHER CHAINS
+            const nuovo = enqueue(
+                q.head,
+                get_candidate_list(c).map(v => v.textContent).filter(v => v != q.common).pop(),
+                q.chain.slice(0)
+            );
+            nuovo.chain.push(c);
+            queue.push(nuovo);
+
+            const is_long_enough = nuovo.chain.length > 2;
+            const is_useful_chain = nuovo.head == nuovo.common;
+            if (is_long_enough && is_useful_chain)
+                result.push(nuovo);
         }
-        first_round = false;
     }
     return result
+}
+
+const enqueue = (head, common, chain) => {
+    return {
+        head: head,
+        common: common,
+        chain: chain
+    }
 }
