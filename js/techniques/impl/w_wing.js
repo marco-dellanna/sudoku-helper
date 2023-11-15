@@ -34,10 +34,10 @@ const w_wing_test = (unit, val, found) => {
                 // IS IT A WING ?
                 let add_wing = cand_one.every(c => cand_two.includes(c));
                 // IS THE WING EFFECTIVE ?
-                add_wing = add_wing && is_chain_effective(one[i], two[j], val);
-                if (add_wing) found.push({ candidate: val, head_tail: [one[i], two[j]], link: unit });
+                const cand_to_eliminate = cand_one.filter(c => c != val).pop();
+                add_wing = add_wing && is_chain_effective(one[i], two[j], cand_to_eliminate);
+                if (add_wing) found.push({ candidate: cand_to_eliminate, head_tail: [one[i], two[j]], link: unit });
             }
         }
     }
-
 };
