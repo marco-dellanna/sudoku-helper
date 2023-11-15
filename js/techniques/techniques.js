@@ -29,6 +29,9 @@ btn_jellyfish.addEventListener('click', () => fish(4));
 const btn_xy_wing = document.querySelector('.xy_wing');
 btn_xy_wing.addEventListener('click', () => xy_wing());
 
+const btn_w_wing = document.querySelector('.w_wing');
+btn_w_wing.addEventListener('click', () => w_wing());
+
 const btn_bug = document.querySelector('.bug');
 btn_bug.addEventListener('click', () => bug());
 

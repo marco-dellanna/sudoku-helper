@@ -1,8 +1,8 @@
-const xy_wing = () => {
-    const found = xy_wing_impl();
+const w_wing = () => {
+    const found = w_wing_impl();
 
     if (!found.length) {
-        techniques_results.innerHTML = 'No XY-wings found';
+        techniques_results.innerHTML = 'No W-Wings found';
         return;
     }
 
@@ -15,12 +15,12 @@ const xy_wing = () => {
 
         const li = document.createElement('LI');
         ul.append(li);
-        li.innerHTML = `AAAAAAAAAA`;
+        li.innerHTML = `BBBBBBBBBB`;
 
         li.addEventListener('mouseenter', () => {
             clear_highlight();
-            highlight_candidates_by_cell_list(f.chain)
-            double_highlight_candidates_by_cell_list([f.chain.at(0), f.chain.at(-1)]);
+            highlight_candidates_by_cell_list(f.link);
+            double_highlight_candidates_by_cell_list(f.head_tail);
         });
         li.addEventListener('mouseout', clear_highlight);
     }

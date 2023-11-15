@@ -55,7 +55,7 @@ const BFS_chain = (found, root, cand_list, max_length) => {
             // HAS THE CHAIN ALREADY BEEN FOUND ?
             add_chain = add_chain && !is_already_found(found, new_chain.chain);
             // IS THE CHAIN EFFECTIVE ?
-            add_chain = add_chain && is_chain_effective(new_chain);
+            add_chain = add_chain && is_chain_effective(new_chain.chain.at(0), new_chain.chain.at(-1), new_chain.head);
 
             if (add_chain) result.push(new_chain);
         }
@@ -84,11 +84,4 @@ const is_reverse_chain = (one, two) => {
         if (one[i] != two[two.length - 1 - i])
             return false;
     return true;
-};
-
-const is_chain_effective = (new_chain) => {
-    const head = new_chain.chain.at(0);
-    const tail = new_chain.chain.at(-1);
-    const seen_by_head_and_tail = intersect_sets(cells_seen_by(head), cells_seen_by(tail));
-    return off_group_elimination(seen_by_head_and_tail, [head, tail], [new_chain.head]);
 };

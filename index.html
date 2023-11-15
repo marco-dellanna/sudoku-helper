@@ -18,8 +18,7 @@
                 <div class="controls">
                     <img src="img/undo.png" class="undo">
                     <p>
-                        Candidates:&nbsp;&nbsp;<input class="toggle_candidates" id="toggle_candidates"
-                            type="checkbox"><label for="toggle_candidates"></label>
+                        Candidates:&nbsp;&nbsp;<input class="toggle_candidates" id="toggle_candidates" type="checkbox"><label for="toggle_candidates"></label>
                         <button class="import_sudoku">Import</button>
                         <button class="export_sudoku">Export</button>
                     </p>
@@ -38,9 +37,9 @@
 
             </div>
 
-            <div class="controls">
-                <div class="techniques basic">
-                    <h2>Basic</h2>
+            <div class="controls techniques">
+                <div class="techniques">
+                    <h2>Basic strategies</h2>
                     <ul>
                         <li class="naked_single">Naked single</li>
                         <li class="hidden_single">Hidden single</li>
@@ -49,36 +48,31 @@
                         <li class="naked_subset">Naked subset</li>
                         <li class="hidden_subset">Hidden subset</li>
                     </ul>
-                </div>
-                <div class="techniques fish_wing">
-                    <h2>Fish</h2>
+                    <h2>Fish strategies</h2>
                     <ul>
                         <li class="x_wing">X-Wing</li>
                         <li class="swordfish">Swordfish</li>
                         <li class="jellyfish">Jellyfish</li>
                     </ul>
-                    <h2>Wing</h2>
+                    <h2>Wing strategies</h2>
                     <ul>
                         <li class="xy_wing">XY-Wing</li>
                         <li class="xyz_wing">XYZ-Wing</li>
+                        <li class="w_wing">W-Wing</li>
                     </ul>
-                </div>
-                <div class="techniques color_chain">
-                    <h2>Coloring</h2>
+                    <h2>Coloring strategies</h2>
                     <ul>
                         <li class="simple_coloring">Simple coloring</li>
                         <li class="3d_medusa">3D Medusa</li>
                     </ul>
-                    <h2>Chaining</h2>
+                    <h2>Chaining strategies</h2>
                     <ul>
                         <li class="x_cycles">X-Cycles</li>
                         <li class="xy_chain">XY-Chain</li>
                     </ul>
-                </div>
-                <div class="techniques uniqueness">
-                    <h2>Uniqueness</h2>
+                    <h2>Uniqueness strategies</h2>
                     <ul>
-                        <li class="bug">BUG</li>
+                        <li class="bug">BUG+1</li>
                         <li class="unique_rectangle">Unique rectangle</li>
                         <li class="hidden_unique_rectangle">Hidden unique rectangle</li>
                     </ul>
@@ -117,28 +111,40 @@
     <script src="js/main/check.js"></script>
     <script src="js/main/import_export.js"></script>
 
-
+    <!-- BASIC -->
     <script src="js/techniques/impl/naked_single.js"></script>
-    <script src="js/techniques/impl/hidden_single.js"></script>
-    <script src="js/techniques/impl/locked_candidate.js"></script>
-    <script src="js/techniques/impl/naked_subset.js"></script>
-    <script src="js/techniques/impl/hidden_subset.js"></script>
-    <script src="js/techniques/impl/fish.js"></script>
-
-    <script src="js/techniques/impl/BUG.js"></script>
-
-    <script src="js/techniques/impl/xy_chain.js"></script>
-
     <script src="js/techniques/view/naked_single.js"></script>
+
+    <script src="js/techniques/impl/hidden_single.js"></script>
     <script src="js/techniques/view/hidden_single.js"></script>
+
+    <script src="js/techniques/impl/locked_candidate.js"></script>
     <script src="js/techniques/view/locked_candidates.js"></script>
+
+    <script src="js/techniques/impl/naked_subset.js"></script>
     <script src="js/techniques/view/naked_subset.js"></script>
+
+    <script src="js/techniques/impl/hidden_subset.js"></script>
     <script src="js/techniques/view/hidden_subset.js"></script>
+
+    <!-- FISH -->
+    <script src="js/techniques/impl/fish.js"></script>
     <script src="js/techniques/view/fish.js"></script>
+
+    <!-- WING -->
+    <script src="js/techniques/impl/xy_wing.js"></script>
     <script src="js/techniques/view/xy_wing.js"></script>
-    <script src="js/techniques/view/BUG.js"></script>
+
+    <script src="js/techniques/impl/w_wing.js"></script>
+    <script src="js/techniques/view/w_wing.js"></script>
+
+    <!-- CHAINING -->
+    <script src="js/techniques/impl/xy_chain.js"></script>
     <script src="js/techniques/view/xy_chain.js"></script>
 
+    <!-- UNIQUENESS -->
+    <script src="js/techniques/impl/BUG.js"></script>
+    <script src="js/techniques/view/BUG.js"></script>
 
     <script src="js/techniques/techniques.js"></script>
 

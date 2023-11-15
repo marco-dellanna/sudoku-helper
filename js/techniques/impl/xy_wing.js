@@ -1,0 +1,1 @@
+const xy_wing_impl = () => xy_chain_impl(3);

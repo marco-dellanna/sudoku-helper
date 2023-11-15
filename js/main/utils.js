@@ -56,3 +56,8 @@ const cells_seen_by = (c) => {
 }
 
 const bivalued_cells_seen_by = (c) => filter_bivalue_cells(cells_seen_by(c));
+
+const is_chain_effective = (head, tail, val) => {
+    const seen_by_head_and_tail = intersect_sets(cells_seen_by(head), cells_seen_by(tail));
+    return off_group_elimination(seen_by_head_and_tail, [head, tail], [val]);
+};
