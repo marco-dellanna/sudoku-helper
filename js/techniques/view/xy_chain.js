@@ -1,5 +1,4 @@
-const xy_chain = () => {
-    const found = xy_chain_impl();
+const xy_chain_view = found => {
 
     if (!found.length) {
         techniques_results.innerHTML = 'No XY-chains found';
@@ -24,4 +23,6 @@ const xy_chain = () => {
         });
         li.addEventListener('mouseout', clear_highlight);
     }
-}
+};
+
+const xy_chain = () => xy_chain_view(xy_chain_impl());

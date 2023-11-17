@@ -1,5 +1,4 @@
-const bug = () => {
-    const found = bug_impl();
+const bug_view = found => {
 
     if (!found) {
         techniques_results.innerHTML = 'No BUG found';
@@ -24,4 +23,6 @@ const bug = () => {
     });
     li.addEventListener('mouseout', clear_highlight);
     
-}
+};
+
+const bug = () => bug_view(bug_impl());

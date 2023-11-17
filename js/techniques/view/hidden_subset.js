@@ -1,13 +1,12 @@
-const hidden_subset = () => {
+const hidden_subset_view = () => {
     techniques_results.innerHTML = '';
     
-    display_hidden_subset(2, 'pair');
-    display_hidden_subset(3, 'triple');
-    display_hidden_subset(4, 'quad');    
+    display_hidden_subset(hidden_subset_impl(2), 'pair');
+    display_hidden_subset(hidden_subset_impl(3), 'triple');
+    display_hidden_subset(hidden_subset_impl(4), 'quad');    
 }
 
-const display_hidden_subset = (k, type) => {
-    const found = hidden_subset_impl(k);
+const display_hidden_subset = (found, type) => {
 
     if (!found.length) {
         const p = document.createElement('P');
@@ -52,4 +51,6 @@ const display_hidden_subset = (k, type) => {
         });
         li.addEventListener('mouseout', clear_highlight);
     }
-}
+};
+
+const hidden_subset = hidden_subset_view;

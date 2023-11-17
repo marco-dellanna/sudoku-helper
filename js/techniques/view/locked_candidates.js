@@ -1,5 +1,4 @@
-const pointing_cells = () => {
-    const found = pointing_cells_impl();
+const pointing_cells_view = found => {
 
     if (!found.length) {
         techniques_results.innerHTML = 'No pointing pairs found';
@@ -42,8 +41,7 @@ const pointing_cells = () => {
     }
 }
 
-const linebox_reduction = () => {
-    const found = linebox_reduction_impl();
+const linebox_reduction_view = found => {
 
     if (!found.length) {
         techniques_results.innerHTML = 'No line box reductions found';
@@ -84,4 +82,7 @@ const linebox_reduction = () => {
         });
         li.addEventListener('mouseout', clear_highlight);
     }
-}
+};
+
+const pointing_cells = () => pointing_cells_view(pointing_cells_impl());
+const linebox_reduction = () => linebox_reduction_view(linebox_reduction_impl());

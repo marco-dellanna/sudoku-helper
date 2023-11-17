@@ -1,5 +1,4 @@
-const w_wing = () => {
-    const found = w_wing_impl();
+const w_wing_view = found => {
 
     if (!found.length) {
         techniques_results.innerHTML = 'No W-Wings found';
@@ -24,4 +23,6 @@ const w_wing = () => {
         });
         li.addEventListener('mouseout', clear_highlight);
     }
-}
+};
+
+const w_wing = () => w_wing_view(w_wing_impl());

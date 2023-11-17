@@ -1,5 +1,4 @@
-const naked_single = () => {
-    const found = naked_single_impl();
+const naked_single_view = found => {
 
     if (!found.length) {
         techniques_results.innerHTML = 'No naked singles found';
@@ -27,3 +26,5 @@ const naked_single = () => {
     }
 
 }
+
+const naked_single = () => naked_single_view(naked_single_impl());

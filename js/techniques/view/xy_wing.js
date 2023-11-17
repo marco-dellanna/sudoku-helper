@@ -1,5 +1,4 @@
-const xy_wing = () => {
-    const found = xy_wing_impl();
+const xy_wing_view = found => {
 
     if (!found.length) {
         techniques_results.innerHTML = 'No XY-wings found';
@@ -24,4 +23,6 @@ const xy_wing = () => {
         });
         li.addEventListener('mouseout', clear_highlight);
     }
-}
+};
+
+const xy_wing = () => xy_wing_view(xy_wing_impl());

@@ -1,18 +1,4 @@
-const fish = (k) => {
-    const found = fish_impl(k);
-
-    let fish_type;
-    switch (k) {
-        case 2:
-            fish_type = 'X-Wing';
-            break;
-        case 3:
-            fish_type = 'Swordfish';
-            break;
-        case 4:
-            fish_type = 'Jellyfish';
-            break;
-    }
+const fish_view = (found, fish_type) => {
 
     if (!found.length) {
         techniques_results.innerHTML = `No ${fish_type} found`;
@@ -52,4 +38,6 @@ const fish = (k) => {
         });
         li.addEventListener('mouseout', clear_highlight);
     }
-}
+};
+
+const fish = (k, fish_type) => fish_view(fish_impl(k), fish_type);

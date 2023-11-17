@@ -1,5 +1,4 @@
-const hidden_single = () => {
-    const found = hidden_single_impl();
+const hidden_single_view = found => {
 
     if (!found.length) {
         techniques_results.innerHTML = 'No hidden singles found';
@@ -44,4 +43,6 @@ const hidden_single = () => {
         });
         li.addEventListener('mouseout', clear_highlight);
     }
-}
+};
+
+const hidden_single = () => hidden_single_view(hidden_single_impl());

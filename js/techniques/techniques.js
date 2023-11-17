@@ -18,13 +18,13 @@ const btn_hidden_subset = document.querySelector('.hidden_subset');
 btn_hidden_subset.addEventListener('click', hidden_subset);
 
 const btn_x_wing = document.querySelector('.x_wing');
-btn_x_wing.addEventListener('click', () => fish(2));
+btn_x_wing.addEventListener('click', () => fish(2, 'X-Wing'));
 
 const btn_swordfish = document.querySelector('.swordfish');
-btn_swordfish.addEventListener('click', () => fish(3));
+btn_swordfish.addEventListener('click', () => fish(3, 'Swordfish'));
 
 const btn_jellyfish = document.querySelector('.jellyfish');
-btn_jellyfish.addEventListener('click', () => fish(4));
+btn_jellyfish.addEventListener('click', () => fish(4, 'Jellyfish'));
 
 const btn_xy_wing = document.querySelector('.xy_wing');
 btn_xy_wing.addEventListener('click', () => xy_wing());

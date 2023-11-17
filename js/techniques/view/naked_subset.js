@@ -1,15 +1,14 @@
-const naked_subset = () => {
+const naked_subset_view = () => {
     
     techniques_results.innerHTML = '';
     
-    display_naked_subset(2, 'pair');
-    display_naked_subset(3, 'triple');
-    display_naked_subset(4, 'quad');    
+    display_naked_subset(naked_subset_impl(2), 'pair');
+    display_naked_subset(naked_subset_impl(3), 'triple');
+    display_naked_subset(naked_subset_impl(4), 'quad');    
 }
 
 
-const display_naked_subset = (k, type) => {
-    const found = naked_subset_impl(k);
+const display_naked_subset = (found, type) => {
 
     if (!found.length) {
         const p = document.createElement('P');
@@ -55,3 +54,5 @@ const display_naked_subset = (k, type) => {
         li.addEventListener('mouseout', clear_highlight);
     }
 }
+
+const naked_subset = naked_subset_view;
