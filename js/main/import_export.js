@@ -1,6 +1,15 @@
-const import_btn = document.querySelector('.import_sudoku');
-import_btn.addEventListener('click', () => {
-    const sudoku = prompt('input');
+const modal = document.querySelector('.modal');
+const import_modal = modal.querySelector('.import_modal');
+
+const import_btn_main = document.querySelector('.import_sudoku');
+import_btn_main.addEventListener('click', () => {
+    modal.style.display = 'block';
+    import_modal.style.display = 'block';
+});
+
+const import_btn_modal = document.querySelector('.import_btn');
+import_btn_modal.addEventListener('click', (ev) => {
+    const sudoku = ev.target.previousElementSibling.value;
 
     while (history.length) history.pop()();
 
@@ -17,6 +26,7 @@ import_btn.addEventListener('click', () => {
             }
             digit_index++;
         }
+    close_modal(ev);
 });
 
 const export_btn = document.querySelector('.export_sudoku');
@@ -29,3 +39,9 @@ export_btn.addEventListener('click', () => {
             else sudoku += '0';
     techniques_results.innerText = sudoku;
 });
+
+const close_modal = ev => {
+    const elem = ev.target.parentElement;
+    elem.style.display = '';
+    elem.parentElement.style.display = '';
+}

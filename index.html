@@ -6,7 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku Helper</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/controls.css">
+    <link rel="stylesheet" href="css/techniques.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 
 <body>
@@ -15,8 +22,30 @@
         <div class="content">
             <div>
                 <div class="field hidden_candidates"></div>
+                <div class="y_grid_coords">
+                    <span>A</span>
+                    <span>B</span>
+                    <span>C</span>
+                    <span>D</span>
+                    <span>E</span>
+                    <span>F</span>
+                    <span>G</span>
+                    <span>H</span>
+                    <span>I</span>
+                </div>
+                <div class="x_grid_coords">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                </div>
             </div>
-            <div class="controls">
+            <div>
                 <div class="techniques">
                     <div>
                         <h2>Basic strategies</h2>
@@ -66,9 +95,9 @@
                 <img src="img/undo.png" class="undo">
                 <p>
                     Candidates:&nbsp;&nbsp;<input class="toggle_candidates" id="toggle_candidates" type="checkbox"><label for="toggle_candidates"></label>
-                    <button class="import_sudoku">Import</button>
-                    <button class="export_sudoku">Export</button>
-                    <button class="hint_sudoku">Hint</button>
+                    <button class="import_sudoku btn">Import</button>
+                    <button class="export_sudoku btn">Export</button>
+                    <button class="hint_sudoku btn">Hint</button>
                 </p>
                 <div class="candidates_highlight">
                     <div>1</div>
@@ -100,8 +129,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+
     <template>
         <table>
             <tr>
@@ -121,6 +150,15 @@
             </tr>
         </table>
     </template>
+
+    <div class="modal">
+        <div class="overlay"></div>
+        <div class="import_modal">
+            <p>Input the zero-filled string representing the sudoku:</p>
+            <input type="text">
+            <button class="import_btn btn">Enter</button>
+        </div>
+    </div>
 
     <script src="js/main/init.js"></script>
     <script src="js/main/utils.js"></script>

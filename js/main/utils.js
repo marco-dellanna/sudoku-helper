@@ -27,7 +27,19 @@ const get_combinations = function (a, n, s = [], t = []) {
     }, s)
 };
 
-const describe_group = group => group.map(g => `R${1 + +g.getAttribute('row')}C${1 + +g.getAttribute('col')}`).join(', ');
+const describe_group = group => group.map(g => `${to_letter[g.getAttribute('row')]}${1 + +g.getAttribute('col')}`).join(', ');
+
+const to_letter = {
+    '0': 'A',
+    '1': 'B',
+    '2': 'C',
+    '3': 'D',
+    '4': 'E',
+    '5': 'F',
+    '6': 'G',
+    '7': 'H',
+    '8': 'I'
+};
 
 const off_group_elimination = (group, subgroup, values) => {
     const difference = group.filter(s => !subgroup.includes(s));

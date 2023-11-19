@@ -1,22 +1,19 @@
 const naked_single_view = found => {
 
     if (!found.length) {
-        techniques_results.innerHTML = 'No naked singles found';
+        techniques_results.innerHTML = '<h2>No naked singles found</h2>';
         return;
     }
 
-    techniques_results.innerHTML = '';
+    techniques_results.innerHTML = '<h2>Naked single:</h2>';
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);
 
-    for (const f of found) {
-        const r = f.naked.getAttribute('row');
-        const c = f.naked.getAttribute('col');
-        
+    for (const f of found) {        
         const li = document.createElement('LI');
         ul.append(li);
-        li.innerText = `The only candidate for cell R${1 + +r}C${1 + +c} is ${f.value}.`;
+        li.innerText = `The only candidate for cell ${describe_group([f.naked])} is ${f.value}`;
         
         li.addEventListener('mouseenter', () => {
             clear_highlight();

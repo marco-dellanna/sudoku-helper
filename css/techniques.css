@@ -1,0 +1,50 @@
+.techniques {
+    padding: 0 20px;
+}
+
+.techniques>div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.techniques ul {
+    list-style: none;
+    margin: 5px 10px 10px 0;
+}
+
+.techniques li {
+    display: block;
+    padding: 5px 20px;
+    background-color: #19e237;
+    cursor: pointer;
+    transition: padding 0.2s ease;
+}
+
+.techniques li:hover {
+    padding: 5px 10px 5px 30px;
+}
+
+.techniques li:nth-child(even) {
+    background-color: #78ec89;
+}
+
+.techniques_results {
+    overflow: auto;
+    width: 546px;
+    height: 200px;
+    max-height: 200px;
+    border: 1px solid #000;
+    margin-top: 15px;
+    user-select: text;
+}
+
+.techniques_results ul {
+    list-style-position: inside;
+}
+
+.techniques_results ul li {
+    font-size: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}

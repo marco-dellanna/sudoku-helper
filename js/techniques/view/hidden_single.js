@@ -34,7 +34,7 @@ const hidden_single_view = found => {
 
         const li = document.createElement('LI');
         ul.append(li);
-        li.innerHTML = `In ${label}, the only cell with candidate ${f.value} is R${1 + +r}C${1 + +c}.`;
+        li.innerHTML = `In ${label}, the only cell with candidate ${f.value} is ${describe_group([f.hidden])}.`;
 
         li.addEventListener('mouseenter', () => {
             clear_highlight();
