@@ -1,11 +1,11 @@
 const bug_view = found => {
 
     if (!found) {
-        techniques_results.innerHTML = 'No BUG found';
+        techniques_results.innerHTML = '<h2>No BUG found</h2>';
         return;
     }
 
-    techniques_results.innerHTML = '';
+    techniques_results.innerHTML = '<h2>BUG</h2>';
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);
@@ -15,7 +15,7 @@ const bug_view = found => {
     
     const li = document.createElement('LI');
     ul.append(li);
-    li.innerText = `BUG found in R${1 + +r}C${1 + +c}, ${found[1]} must be the solution. Other candidates would create two or more solutions so they can be removed`;
+    li.innerText = `In ${describe_group([found[0]])}, ${found[1]} must be the solution. Other candidates would create two or more solutions so they can be removed`;
     
     li.addEventListener('mouseenter', () => {
         clear_highlight();

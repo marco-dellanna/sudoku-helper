@@ -1,11 +1,11 @@
 const w_wing_view = found => {
 
     if (!found.length) {
-        techniques_results.innerHTML = 'No W-Wings found';
+        techniques_results.innerHTML = '<h2>No W-wing found</h2>';
         return;
     }
 
-    techniques_results.innerHTML = '';
+    techniques_results.innerHTML = '<h2>W-wing:</h2>';
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);

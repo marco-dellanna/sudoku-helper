@@ -1,11 +1,11 @@
 const fish_view = (found, fish_type) => {
 
     if (!found.length) {
-        techniques_results.innerHTML = `No ${fish_type} found`;
+        techniques_results.innerHTML = `<h2>No ${fish_type} found</h2>`;
         return;
     }
 
-    techniques_results.innerHTML = '';
+    techniques_results.innerHTML = `<h2>${fish_type}:</h2>`;
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);

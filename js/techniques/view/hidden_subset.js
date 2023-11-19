@@ -1,19 +1,25 @@
 const hidden_subset_view = () => {
     techniques_results.innerHTML = '';
-    
     display_hidden_subset(hidden_subset_impl(2), 'pair');
     display_hidden_subset(hidden_subset_impl(3), 'triple');
     display_hidden_subset(hidden_subset_impl(4), 'quad');    
 }
 
+const hidden_subset_view_one_type = (found, type) => {
+    techniques_results.innerHTML = '';
+    display_hidden_subset(found, type);
+};
+
 const display_hidden_subset = (found, type) => {
 
     if (!found.length) {
         const p = document.createElement('P');
-        p.textContent = `No hidden ${type}s found`
+        p.textContent = `No hidden ${type} found`
         techniques_results.append(p);
         return;
     }
+
+    techniques_results.innerHTML += `<h2>Hidden ${type}:</h2>`;
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);

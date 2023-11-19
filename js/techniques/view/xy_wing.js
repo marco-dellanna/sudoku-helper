@@ -1,7 +1,7 @@
 const xy_wing_view = found => {
 
     if (!found.length) {
-        techniques_results.innerHTML = 'No XY-wings found';
+        techniques_results.innerHTML = '<h2>No XY-wing found</h2>';
         return;
     }
 

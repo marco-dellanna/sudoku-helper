@@ -1,11 +1,11 @@
 const pointing_cells_view = found => {
 
     if (!found.length) {
-        techniques_results.innerHTML = 'No pointing pairs found';
+        techniques_results.innerHTML = '<h2>No pointing cells found</h2>';
         return;
     }
 
-    techniques_results.innerHTML = '';
+    techniques_results.innerHTML = '<h2>Pointing cells:</h2>';
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);
@@ -44,11 +44,11 @@ const pointing_cells_view = found => {
 const linebox_reduction_view = found => {
 
     if (!found.length) {
-        techniques_results.innerHTML = 'No line box reductions found';
+        techniques_results.innerHTML = '<h2>No line-box reduction found</h2>';
         return;
     }
 
-    techniques_results.innerHTML = '';
+    techniques_results.innerHTML = '<h2>Line-box reduction:</h2>';
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);

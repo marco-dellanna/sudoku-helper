@@ -37,27 +37,27 @@ const stategies_list = [
     },
     {
         impl: () => naked_subset_impl(2),
-        view: f => display_naked_subset(f, 'pair')
+        view: f => naked_subset_view_one_type(f, 'pair')
     },
     {
         impl: () => hidden_subset_impl(2),
-        view: f => display_hidden_subset(f, 'pair')
+        view: f => hidden_subset_view_one_type(f, 'pair')
     },
     {
         impl: () => naked_subset_impl(3),
-        view: f => display_naked_subset(f, 'triple')
+        view: f => naked_subset_view_one_type(f, 'triple')
     },
     {
         impl: () => hidden_subset_impl(3),
-        view: f => display_hidden_subset(f, 'triple')
+        view: f => hidden_subset_view_one_type(f, 'triple')
     },
     {
         impl: () => naked_subset_impl(4),
-        view: f => display_naked_subset(f, 'quad')
+        view: f => naked_subset_view_one_type(f, 'quad')
     },
     {
         impl: () => hidden_subset_impl(4),
-        view: f => display_hidden_subset(f, 'quad')
+        view: f => hidden_subset_view_one_type(f, 'quad')
     },
     {
         impl: bug_impl,

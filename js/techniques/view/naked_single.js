@@ -1,7 +1,7 @@
 const naked_single_view = found => {
 
     if (!found.length) {
-        techniques_results.innerHTML = '<h2>No naked singles found</h2>';
+        techniques_results.innerHTML = '<h2>No naked single found</h2>';
         return;
     }
 
@@ -10,7 +10,9 @@ const naked_single_view = found => {
     const ul = document.createElement('UL');
     techniques_results.append(ul);
 
-    for (const f of found) {        
+    for (const f of found) {
+        const r = f.naked.getAttribute('row');
+        const c = f.naked.getAttribute('col');        
         const li = document.createElement('LI');
         ul.append(li);
         li.innerText = `The only candidate for cell ${describe_group([f.naked])} is ${f.value}`;

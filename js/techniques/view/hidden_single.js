@@ -1,11 +1,11 @@
 const hidden_single_view = found => {
 
     if (!found.length) {
-        techniques_results.innerHTML = 'No hidden singles found';
+        techniques_results.innerHTML = '<h2>No hidden single found</h2>';
         return;
     }
 
-    techniques_results.innerHTML = '';
+    techniques_results.innerHTML = '<h2>Hidden single:</h2>';
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);

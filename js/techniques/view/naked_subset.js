@@ -1,21 +1,25 @@
 const naked_subset_view = () => {
-    
     techniques_results.innerHTML = '';
-    
     display_naked_subset(naked_subset_impl(2), 'pair');
     display_naked_subset(naked_subset_impl(3), 'triple');
     display_naked_subset(naked_subset_impl(4), 'quad');    
 }
 
+const naked_subset_view_one_type = (found, type) => {
+    techniques_results.innerHTML = '';
+    display_naked_subset(found, type);
+}
 
 const display_naked_subset = (found, type) => {
 
     if (!found.length) {
         const p = document.createElement('P');
-        p.textContent = `No naked ${type}s found`
+        p.textContent = `<h2>No naked ${type} found</h2>`;
         techniques_results.append(p);
         return;
     }
+
+    techniques_results.innerHTML += `<h2>Naked ${type}:</h2>`;
 
     const ul = document.createElement('UL');
     techniques_results.append(ul);
