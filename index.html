@@ -15,72 +15,92 @@
         <div class="content">
             <div>
                 <div class="field hidden_candidates"></div>
-                <div class="controls">
-                    <img src="img/undo.png" class="undo">
-                    <p>
-                        Candidates:&nbsp;&nbsp;<input class="toggle_candidates" id="toggle_candidates" type="checkbox"><label for="toggle_candidates"></label>
-                        <button class="import_sudoku">Import</button>
-                        <button class="export_sudoku">Export</button>
-                        <button class="hint_sudoku">Hint</button>
-                    </p>
-                    <div class="candidates_highlight">
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
+            </div>
+            <div class="controls">
+                <div class="techniques">
+                    <div>
+                        <h2>Basic strategies</h2>
+                        <ul>
+                            <li class="naked_single">Naked single</li>
+                            <li class="hidden_single">Hidden single</li>
+                            <li class="pointing_cells">Pointing cells</li>
+                            <li class="linebox_reduction">Line/Box reduction</li>
+                            <li class="naked_subset">Naked subset</li>
+                            <li class="hidden_subset">Hidden subset</li>
+                        </ul>
+                        <h2>Fish strategies</h2>
+                        <ul>
+                            <li class="x_wing">X-Wing</li>
+                            <li class="swordfish">Swordfish</li>
+                            <li class="jellyfish">Jellyfish</li>
+                        </ul>
+                        <h2>Wing strategies</h2>
+                        <ul>
+                            <li class="xy_wing">XY-Wing</li>
+                            <li class="xyz_wing">XYZ-Wing</li>
+                            <li class="w_wing">W-Wing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Coloring strategies</h2>
+                        <ul>
+                            <li class="simple_coloring">Simple coloring</li>
+                            <li class="3d_medusa">3D Medusa</li>
+                        </ul>
+                        <h2>Chaining strategies</h2>
+                        <ul>
+                            <li class="x_cycles">X-Cycles</li>
+                            <li class="xy_chain">XY-Chain</li>
+                        </ul>
+                        <h2>Uniqueness strategies</h2>
+                        <ul>
+                            <li class="bug">BUG+1</li>
+                            <li class="unique_rectangle">Unique rectangle</li>
+                            <li class="hidden_unique_rectangle">Hidden unique rectangle</li>
+                        </ul>
                     </div>
                 </div>
-
-            </div>
-
-            <div class="controls techniques">
-                <div class="techniques">
-                    <h2>Basic strategies</h2>
-                    <ul>
-                        <li class="naked_single">Naked single</li>
-                        <li class="hidden_single">Hidden single</li>
-                        <li class="pointing_cells">Pointing cells</li>
-                        <li class="linebox_reduction">Line/Box reduction</li>
-                        <li class="naked_subset">Naked subset</li>
-                        <li class="hidden_subset">Hidden subset</li>
-                    </ul>
-                    <h2>Fish strategies</h2>
-                    <ul>
-                        <li class="x_wing">X-Wing</li>
-                        <li class="swordfish">Swordfish</li>
-                        <li class="jellyfish">Jellyfish</li>
-                    </ul>
-                    <h2>Wing strategies</h2>
-                    <ul>
-                        <li class="xy_wing">XY-Wing</li>
-                        <li class="xyz_wing">XYZ-Wing</li>
-                        <li class="w_wing">W-Wing</li>
-                    </ul>
-                    <h2>Coloring strategies</h2>
-                    <ul>
-                        <li class="simple_coloring">Simple coloring</li>
-                        <li class="3d_medusa">3D Medusa</li>
-                    </ul>
-                    <h2>Chaining strategies</h2>
-                    <ul>
-                        <li class="x_cycles">X-Cycles</li>
-                        <li class="xy_chain">XY-Chain</li>
-                    </ul>
-                    <h2>Uniqueness strategies</h2>
-                    <ul>
-                        <li class="bug">BUG+1</li>
-                        <li class="unique_rectangle">Unique rectangle</li>
-                        <li class="hidden_unique_rectangle">Hidden unique rectangle</li>
-                    </ul>
+            </div><br>
+            <div class="techniques_results"></div>
+            <div class="controls">
+                <img src="img/undo.png" class="undo">
+                <p>
+                    Candidates:&nbsp;&nbsp;<input class="toggle_candidates" id="toggle_candidates" type="checkbox"><label for="toggle_candidates"></label>
+                    <button class="import_sudoku">Import</button>
+                    <button class="export_sudoku">Export</button>
+                    <button class="hint_sudoku">Hint</button>
+                </p>
+                <div class="candidates_highlight">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+                <div>
+                    <p>Candidates:
+                        <input type="radio" name="candidates_toggle" checked> Toggle
+                        <input type="radio" name="candidates_toggle"> Color
+                    </p>
+                </div>
+                <div class="color_picker">
+                    <div style="background-color: #ff7600;"></div>
+                    <div style="background-color: #ffA900;"></div>
+                    <div style="background-color: #8CB32D;"></div>
+                    <div style="background-color: #84E900;"></div>
+                    <div style="background-color: #00AB6F;"></div>
+                    <div style="background-color: #01939A;"></div>
+                    <div style="background-color: #6C8AD5;"></div>
+                    <div style="background-color: #8E6ED7;"></div>
+                    <div style="background-color: #D660DC;"></div>
                 </div>
             </div>
         </div>
-        <div class="techniques_results"></div>
+
     </div>
     <template>
         <table>
@@ -105,6 +125,7 @@
     <script src="js/main/init.js"></script>
     <script src="js/main/utils.js"></script>
     <script src="js/main/candidates_highlight.js"></script>
+    <script src="js/main/candidates_color.js"></script>
     <script src="js/main/undo.js"></script>
     <script src="js/main/erode_candidates.js"></script>
     <script src="js/main/user_interact.js"></script>

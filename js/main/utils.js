@@ -21,7 +21,7 @@ const unsolved_box_cells_by_index = (index) => box_cells_by_index(index).filter(
 const get_combinations = function (a, n, s = [], t = []) {
     return a.reduce((p, c, i, a) => {
         n > 1 ? get_combinations(a.slice(i + 1), n - 1, p, (t.push(c), t))
-        : p.push((t.push(c), t).slice(0));
+            : p.push((t.push(c), t).slice(0));
         t.pop();
         return p
     }, s)
@@ -61,3 +61,12 @@ const is_chain_effective = (head, tail, val) => {
     const seen_by_head_and_tail = intersect_sets(cells_seen_by(head), cells_seen_by(tail));
     return off_group_elimination(seen_by_head_and_tail, [head, tail], [val]);
 };
+
+const enough_clues = () => {
+    let solved_cells = 0;
+    for (let i = 0; i < 9; i++)
+        for (let j = 0; j < 9; j++)
+            if (is_solved(cells[i][j])) solved_cells++;
+    if (solved_cells >= 17) return true;
+    return false;
+}
