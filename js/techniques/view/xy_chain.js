@@ -10,11 +10,13 @@ const xy_chain_view = found => {
     const ul = document.createElement('UL');
     techniques_results.append(ul);
 
+    found.sort((a, b) => a.chain.length - b.chain.length);
+
     for (const f of found) {
 
         const li = document.createElement('LI');
         ul.append(li);
-        li.innerHTML = `AAAAAAAAAA`;
+        li.innerHTML = `Chain on ${f.head} of length ${f.chain.length}: ${describe_group(f.chain)}`;
 
         li.addEventListener('mouseenter', () => {
             clear_highlight();
