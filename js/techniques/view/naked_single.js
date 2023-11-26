@@ -11,8 +11,8 @@ const naked_single_view = found => {
     techniques_results.append(ul);
 
     for (const f of found) {
-        const r = f.naked.getAttribute('row');
-        const c = f.naked.getAttribute('col');        
+        const r = f.naked.r();
+        const c = f.naked.c();        
         const li = document.createElement('LI');
         ul.append(li);
         li.innerText = `The only candidate for cell ${describe_group([f.naked])} is ${f.value}`;

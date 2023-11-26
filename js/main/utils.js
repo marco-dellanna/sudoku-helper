@@ -1,3 +1,5 @@
+const div = (a, b) => Math.floor(a / b);
+
 const is_solved = (c) => c.hasAttribute('solved');
 const is_solved_by_index = (i, j) => is_solved(cells[i][j]);
 const get_candidate_list = c => [...c.querySelectorAll('.candidate_visible')];
@@ -5,18 +7,18 @@ const get_candidate_list_by_index = (i, j) => get_candidate_list(cells[i][j]);
 const has_candidate = (c, val) => c.querySelector(`.candidate_visible.C${val}`);
 const filter_cells_with_candidate = (arr, val) => arr.filter(c => has_candidate(c, val));
 
-const row_cells = (i) => cells[i];
-const unsolved_row_cells = (i) => row_cells(i).filter(c => !is_solved(c));
+/*  */
+const row_cells = i => cells[i];
+const unsolved_row_cells = i => row_cells(i).filter(c => !is_solved(c));
+const unsolved_row_cells_with_candidate = (i, val) => filter_cells_with_candidate(unsolved_row_cells(i), val);
 
-const col_cells = (j) => cells.map(r => r[j]);
-const unsolved_col_cells = (j) => col_cells(j).filter(c => !is_solved(c));
+const col_cells = j => cells.map(r => r[j]);
+const unsolved_col_cells = j => col_cells(j).filter(c => !is_solved(c));
+const unsolved_col_cells_with_candidate = (j, val) => filter_cells_with_candidate(unsolved_col_cells(j), val);
 
-const box_cells = (i, j) => box_cells_by_index(cells[i][j].getAttribute('box'));
-
-const unsolved_box_cells = (i, j) => box_cells(i, j).filter(c => !is_solved(c));
-
-const box_cells_by_index = (index) => cells.flatMap(c => c).filter(c => c.getAttribute('box') == index);
-const unsolved_box_cells_by_index = (index) => box_cells_by_index(index).filter(c => !is_solved(c));
+const box_cells = b => cells.flatMap(c => c).filter(c => c.b() == b);
+const unsolved_box_cells = b => box_cells(b).filter(c => !is_solved(c));
+const unsolved_box_cells_with_candidate = (b, val) => filter_cells_with_candidate(unsolved_box_cells(b), val);
 
 const get_combinations = function (a, n, s = [], t = []) {
     return a.reduce((p, c, i, a) => {
@@ -27,7 +29,7 @@ const get_combinations = function (a, n, s = [], t = []) {
     }, s)
 };
 
-const describe_group = group => group.map(g => `${to_letter[g.getAttribute('row')]}${1 + +g.getAttribute('col')}`).join(', ');
+const describe_group = group => group.map(g => `${to_letter[g.r()]}${1 + +g.c()}`).join(', ');
 
 const to_letter = {
     '0': 'A',
@@ -61,9 +63,9 @@ const merge_candidates = group => {
 const filter_bivalue_cells = arr => arr.filter(c => get_candidate_list(c).length == 2);
 
 const cells_seen_by = (c) => {
-    const col = unsolved_col_cells(c.getAttribute('col'));
-    const row = unsolved_row_cells(c.getAttribute('row'));
-    const box = unsolved_box_cells_by_index(c.getAttribute('box'));
+    const col = unsolved_col_cells(c.c());
+    const row = unsolved_row_cells(c.r());
+    const box = unsolved_box_cells(c.b());
     return merge_set(col.concat(row).concat(box).filter(v => v != c));
 }
 
@@ -81,4 +83,4 @@ const enough_clues = () => {
             if (is_solved(cells[i][j])) solved_cells++;
     if (solved_cells >= 17) return true;
     return false;
-}
+};

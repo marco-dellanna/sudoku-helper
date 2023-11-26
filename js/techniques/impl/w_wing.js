@@ -6,7 +6,7 @@ const w_wing_impl = () => {
         for (let j = 0; j < 9; j++) {
             let row = unsolved_row_cells(j);
             let col = unsolved_col_cells(j);
-            let box = unsolved_box_cells_by_index(j);
+            let box = unsolved_box_cells(j);
 
             row = filter_cells_with_candidate(row, i);
             col = filter_cells_with_candidate(col, i);

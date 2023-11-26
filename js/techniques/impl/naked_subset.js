@@ -5,7 +5,7 @@ const naked_subset_impl = (k) => {
     for (let i = 0; i < 9; i++) {
         const row_cells = unsolved_row_cells(i).filter(c => get_candidate_list(c).length > 1);
         const col_cells = unsolved_col_cells(i).filter(c => get_candidate_list(c).length > 1);
-        const box_cells = unsolved_box_cells_by_index(i).filter(c => get_candidate_list(c).length > 1);
+        const box_cells = unsolved_box_cells(i).filter(c => get_candidate_list(c).length > 1);
         is_unit_k_naked(row_cells, 'r', k, found);
         is_unit_k_naked(col_cells, 'c', k, found);
         is_unit_k_naked(box_cells, 'b', k, found);

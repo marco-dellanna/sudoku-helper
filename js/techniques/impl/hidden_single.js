@@ -6,7 +6,7 @@ const hidden_single_impl = () => {
         // GET UNIT CELLS
         const current_row = unsolved_row_cells(i);
         const current_col = unsolved_col_cells(i);
-        const current_box = unsolved_box_cells_by_index(i);
+        const current_box = unsolved_box_cells(i);
         // LOOP THROUGH ALL POSSIBLE CANDIDATES
         for (let val = 1; val < 10; val++) {
             // CHECK IF THE CANDIDATE APPEARS ONLY IN ONE CELL OF THE UNIT

@@ -10,8 +10,8 @@ const bug_view = found => {
     const ul = document.createElement('UL');
     techniques_results.append(ul);
 
-    const r = found[0].getAttribute('row');
-    const c = found[0].getAttribute('col');
+    const r = found[0].r();
+    const c = found[0].c();
     
     const li = document.createElement('LI');
     ul.append(li);

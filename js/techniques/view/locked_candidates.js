@@ -12,11 +12,11 @@ const pointing_cells_view = found => {
 
     for (const f of found) {
 
-        const r = f.pointing[0].getAttribute('row');
-        const c = f.pointing[0].getAttribute('col');
-        const b = f.pointing[0].getAttribute('box');
+        const r = f.pointing[0].r();
+        const c = f.pointing[0].c();
+        const b = f.pointing[0].b();
 
-        let label, highlight = box_cells_by_index(b);
+        let label, highlight = box_cells(b);
         switch (f.unit) {
             case 'r':
                 label = `row ${1 + +r}`;
@@ -55,11 +55,11 @@ const linebox_reduction_view = found => {
 
     for (const f of found) {
 
-        const r = f.pointing[0].getAttribute('row');
-        const c = f.pointing[0].getAttribute('col');
-        const b = f.pointing[0].getAttribute('box');
+        const r = f.pointing[0].r();
+        const c = f.pointing[0].c();
+        const b = f.pointing[0].b();
 
-        let label, highlight = box_cells_by_index(b);
+        let label, highlight = box_cells(b);
         switch (f.unit) {
             case 'r':
                 label = `row ${1 + +r}`;

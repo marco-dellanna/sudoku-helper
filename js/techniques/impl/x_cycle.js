@@ -9,7 +9,7 @@ const x_cycle = () => {
         for (let i = 0; i < 9; i++) {
             const row = filter_cells_with_candidate(unsolved_row_cells(i), val);
             const col = filter_cells_with_candidate(unsolved_col_cells(i), val);
-            const box = filter_cells_with_candidate(unsolved_box_cells_by_index(i), val);
+            const box = filter_cells_with_candidate(unsolved_box_cells(i), val);
 
             check_strong_link(row, strong_links);
             check_strong_link(col, strong_links);

@@ -26,9 +26,9 @@ const display_naked_subset = (found, type) => {
 
     for (const f of found) {
 
-        const r = f.subset[0].getAttribute('row');
-        const c = f.subset[0].getAttribute('col');
-        const b = f.subset[0].getAttribute('box');
+        const r = f.subset[0].r();
+        const c = f.subset[0].c();
+        const b = f.subset[0].b();
 
         let label, highlight;
         switch (f.unit) {
@@ -42,7 +42,7 @@ const display_naked_subset = (found, type) => {
                 break;
             case 'b':
                 label = `box ${1 + +b}`;
-                highlight = box_cells_by_index(b);
+                highlight = box_cells(b);
                 break;
         }
 

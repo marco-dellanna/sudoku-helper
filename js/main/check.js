@@ -2,7 +2,7 @@ const check_sudoku = () => {
     for (let i = 0; i < 9; i++) {
         const row_values = cells_to_solution_value(row_cells(i));
         const col_values = cells_to_solution_value(col_cells(i));
-        const box_values = cells_to_solution_value(box_cells_by_index(i));
+        const box_values = cells_to_solution_value(box_cells(i));
         if(has_duplicates(row_values) || has_duplicates(col_values) || has_duplicates(box_values)) return false;
     }
     return true;

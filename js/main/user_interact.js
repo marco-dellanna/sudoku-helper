@@ -9,8 +9,8 @@ const move_selection = (event) => {
     // CONTINUE IF A CELL IS SELECTED AND AN ARROW KEY WAS TYPED
     if (!selected_cell || !event.key.startsWith('Arrow')) return;
 
-    let i = +selected_cell.getAttribute('row');
-    let j = +selected_cell.getAttribute('col');
+    let i = +selected_cell.r();
+    let j = +selected_cell.c();
 
     // MOVE TO NEW CELL IN A CIRCULAR FASHION WHEN OVERFLOWING
     let new_selected;

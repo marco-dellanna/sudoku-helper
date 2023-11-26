@@ -8,7 +8,7 @@ const hidden_subset_impl = (k) => {
 
         const row = unsolved_row_cells(i);
         const col = unsolved_col_cells(i);
-        const box = unsolved_box_cells_by_index(i);
+        const box = unsolved_box_cells(i);
         for (const comb of k_combinations) {            
             let to_merge = comb.map(c => filter_cells_with_candidate(row, c));
             const row_subset = is_k_hidden(to_merge, k); 

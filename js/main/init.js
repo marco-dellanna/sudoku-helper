@@ -17,7 +17,7 @@ const init = () => {
     // CREA LE SINGOLE CELLE E INNESTA I CANDIDATI
     let box_index = 0;
     for (let i = 0; i < 81; i++) {
-        const row = Math.floor(i / 9), col = i % 9;
+        const row = div(i, 9), col = i % 9;
 
         let cell = document.createElement('DIV');
         cell.append(init_candidates());
@@ -27,10 +27,14 @@ const init = () => {
         if (row % 3 == 0 && col % 3 == 0) {
             cell.setAttribute('box', box_index++);
         } else {
-            const box_corner_row = Math.floor(row / 3) * 3;
-            const box_corner_col = Math.floor(col / 3) * 3;
-            cell.setAttribute('box', cells[box_corner_row][box_corner_col].getAttribute('box'));
+            const box_corner_row = div(row, 3) * 3;
+            const box_corner_col = div(col, 3) * 3;
+            cell.setAttribute('box', cells[box_corner_row][box_corner_col].b());
         }
+
+        cell.r = function(){return +this.getAttribute('row')};
+        cell.c = function(){return +this.getAttribute('col')};
+        cell.b = function(){return +this.getAttribute('box')};
 
         // EVIDENZIA I CONFINI DEI BOX
         if (col == 2 || col == 5) cell.style.borderRight = '3px solid #000';

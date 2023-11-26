@@ -4,7 +4,7 @@ const pointing_cells_impl = () => {
     // LOOP THROUGH ALL THE BOXES
     for (let i = 0; i < 9; i++) {
         // GET BOX CELLS
-        const current_box = unsolved_box_cells_by_index(i);
+        const current_box = unsolved_box_cells(i);
         // LOOP THROUGH ALL POSSIBLE CANDIDATES
         for (let val = 1; val < 10; val++) {
             // CHECK IF THE CELLS THAT HAVE THE CANDIDATE, ALL SHARE THE SAME ROW/COL

@@ -26,7 +26,7 @@ const bug_impl = () => {
         // FIND THE CANDIDATE THAT SOLVES THE BUG
 
         // GET CELLS OF A UNIT WHERE THE BUG CELL LIES (ROW, COL OR BOX)
-        const bug_location = bug_cell.getAttribute('row');
+        const bug_location = bug_cell.r();
         const bug_row = unsolved_row_cells(bug_location);
 
         // LOOP THROUGH THE BUG CELL CANDIDATES

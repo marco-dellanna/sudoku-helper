@@ -12,9 +12,9 @@ const hidden_single_view = found => {
 
     for (const f of found) {
 
-        const r = f.hidden.getAttribute('row');
-        const c = f.hidden.getAttribute('col');
-        const b = f.hidden.getAttribute('box');
+        const r = f.hidden.r();
+        const c = f.hidden.c();
+        const b = f.hidden.b();
 
         let label, highlight;
         switch (f.unit) {
@@ -28,7 +28,7 @@ const hidden_single_view = found => {
                 break;
             case 'b':
                 label = `box ${1 + +b}`;
-                highlight = box_cells_by_index(b);
+                highlight = box_cells(b);
                 break;
         }
 

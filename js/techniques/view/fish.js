@@ -12,8 +12,8 @@ const fish_view = (found, fish_type) => {
 
     for (const f of found) {
 
-        const row_set = merge_set(f.fish.map(c => 1 + +c.getAttribute('row')));
-        const col_set = merge_set(f.fish.map(c => 1 + +c.getAttribute('col')));
+        const row_set = merge_set(f.fish.map(c => 1 + c.r()));
+        const col_set = merge_set(f.fish.map(c => 1 + c.c()));
         let highlight = row_set.map(r => row_cells(r-1)).concat(col_set.map(c => col_cells(c-1))).flat();
         let label1, label2;
         switch (f.unit) {
