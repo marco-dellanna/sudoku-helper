@@ -1,7 +1,7 @@
 const lines = document.querySelector('.lines');
-const lines_bcr = lines.getBoundingClientRect();
 
 const draw = (c1, c2) => {
+    const lines_bcr = lines.getBoundingClientRect();
     const bcr_1 = c1.getBoundingClientRect();
     const bcr_2 = c2.getBoundingClientRect();
    
