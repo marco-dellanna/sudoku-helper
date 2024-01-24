@@ -27,8 +27,8 @@ const linebox_reduction_impl = () => {
         // LOOP THROUGH ALL POSSIBLE CANDIDATES
         for (let val = 1; val < 10; val++) {
             // CHECK IF THE CELLS THAT HAVE THE CANDIDATE, ALL SHARE THE SAME BOX
-            is_unit_compact(current_row, val, 'box', 'r', unsolved_box_cells_by_index, found);
-            is_unit_compact(current_col, val, 'box', 'c', unsolved_box_cells_by_index, found);
+            is_unit_compact(current_row, val, 'box', 'r', unsolved_box_cells, found);
+            is_unit_compact(current_col, val, 'box', 'c', unsolved_box_cells, found);
         }
     }
 
