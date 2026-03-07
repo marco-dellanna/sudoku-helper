@@ -1,29 +1,66 @@
-name: custom workflow
+name: Simulated Dev Activity
 
 on:
   schedule:
-    - cron: "0 9 * * *"
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  commit:
+  simulate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Update file
+      - name: Simulate activity
         run: |
-          echo "Hello World: $(date)" > activity.txt
+          git config --global user.name "Marco Dell'Anna"
+          git config --global user.email "marco.dellanna@outlook.it"
 
-      - name: Commit changes
-        run: |
-          git config user.name "Marco Dell'Anna"
-          git config user.email "marco.dellanna@outlook.it"
-          git add activity.txt
-          git commit -m "fix" || exit 0
+          DAY=$(date +%u)
+
+          # probabilità di attività in base al giorno
+          if [ "$DAY" -le 5 ]; then
+            PROB=80   # lun-ven
+          elif [ "$DAY" -eq 6 ]; then
+            PROB=40   # sabato
+          else
+            PROB=10   # domenica
+          fi
+
+          R=$((RANDOM % 100))
+
+          if [ "$R" -gt "$PROB" ]; then
+            echo "No activity today"
+            exit 0
+          fi
+
+          COMMITS=$((RANDOM % 6 + 1))
+
+          MESSAGES=(
+            "X-Cycle refactor"
+            "fix 3D-Medusa"
+            "improved Simple Coloring"
+            "refactor XY-Chain"
+            "hidden subset fix"
+            "Refactor Naked Subset"
+            "fix GUI"
+          )
+
+          for i in $(seq 1 $COMMITS)
+          do
+            MSG=${MESSAGES[$RANDOM % ${#MESSAGES[@]}]}
+
+            echo "$(date) $RANDOM" >> activity.txt
+            git add activity.txt
+            git commit -m "$MSG"
+
+            # pausa random per simulare lavoro
+            sleep $((RANDOM % 20 + 5))
+          done
+
           git push
