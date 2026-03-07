@@ -1,0 +1,29 @@
+name: custom workflow
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Update file
+        run: |
+          echo "Hello World: $(date)" > activity.txt
+
+      - name: Commit changes
+        run: |
+          git config user.name "Marco Dell'Anna"
+          git config user.email "marco.dellanna@outlook.it"
+          git add activity.txt
+          git commit -m "fix" || exit 0
+          git push
