@@ -1,4 +1,4 @@
-name: Simulated Dev Activity
+name: custom workflow
 
 on:
   schedule:
