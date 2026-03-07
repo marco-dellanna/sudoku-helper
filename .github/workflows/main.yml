@@ -25,11 +25,11 @@ jobs:
 
           # probabilità di attività in base al giorno
           if [ "$DAY" -le 5 ]; then
-            PROB=80   # lun-ven
+            PROB=100   # lun-ven
           elif [ "$DAY" -eq 6 ]; then
-            PROB=40   # sabato
+            PROB=100   # sabato
           else
-            PROB=10   # domenica
+            PROB=100   # domenica
           fi
 
           R=$((RANDOM % 100))
